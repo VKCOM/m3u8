@@ -317,6 +317,7 @@ func (p *MediaPlaylist) AppendSegment(seg *MediaSegment) error {
 func (p *MediaPlaylist) Slide(uri string, duration float64, title string) {
 	if !p.Closed && p.count >= p.winsize {
 		p.Remove()
+		p.SeqNo++
 	}
 	p.Append(uri, duration, title)
 }
